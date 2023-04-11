@@ -1,5 +1,6 @@
-package jpabook.jpashop;
+package jpabook.jpashop.example;
 
+import jpabook.jpashop.example.Hello;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

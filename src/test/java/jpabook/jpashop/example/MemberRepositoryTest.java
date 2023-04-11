@@ -1,5 +1,7 @@
-package jpabook.jpashop;
+package jpabook.jpashop.example;
 
+import jpabook.jpashop.example.Member;
+import jpabook.jpashop.example.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
