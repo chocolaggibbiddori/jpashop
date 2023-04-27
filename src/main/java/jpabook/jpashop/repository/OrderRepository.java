@@ -45,12 +45,19 @@ public class OrderRepository {
 
         TypedQuery<Order> query = em.createQuery(jpql, Order.class).setMaxResults(1000);
 
-        if (orderSearch.getOrderStatus() != null)
-            query = query.setParameter("status", orderSearch.getOrderStatus());
+        if (orderSearch.getOrderStatus() != null) query = query.setParameter("status", orderSearch.getOrderStatus());
 
         if (StringUtils.hasText(orderSearch.getMemberName()))
             query = query.setParameter("name", orderSearch.getMemberName());
 
         return query.getResultList();
+    }
+
+    public List<Order> findAllWithMemberDelivery() {
+        return em.createQuery(
+                "SELECT o FROM Order o" +
+                        " JOIN FETCH o.member m" +
+                        " JOIN FETCH o.delivery d", Order.class)
+                .getResultList();
     }
 }
